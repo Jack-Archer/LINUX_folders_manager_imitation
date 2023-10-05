@@ -9,8 +9,10 @@ public:
     Navigation (Directory *dir);
 
     const Directory* getPtrFolder() const;
-    //const Directory* findDirectory(const std::string to_find) const;
+
+    const Directory* moveToDir(const Directory* ptr_on_dir);
+
 private:
-    Directory *ptr_on_folder_{nullptr};
+    const Directory *ptr_on_folder_{nullptr};
 };
 

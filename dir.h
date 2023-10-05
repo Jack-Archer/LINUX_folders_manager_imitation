@@ -21,11 +21,9 @@ class Directory{
     const std::deque<Directory*> getFolders() const;
     const Directory* findDir(const std::string name) const;
 
-    //const std::deque<Directory*> getInsideFolders() const;
 
     private:
     std::string name_{"root"};
     std::pair<Directory*, std::deque<Directory*>> folders_{nullptr,{}};
     int count_obj_ = 0;
-    //Navigation::Navigation location_;
 };
