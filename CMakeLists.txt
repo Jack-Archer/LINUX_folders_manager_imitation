@@ -13,6 +13,7 @@ SET( impl
     main.cpp
     dir.cpp
     navigation.cpp
+    terminal.cpp
     )
 
 INCLUDE_DIRECTORIES(

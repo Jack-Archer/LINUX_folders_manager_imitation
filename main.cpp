@@ -2,6 +2,7 @@
 
 #include "dir.h"
 #include "navigation.h"
+#include "terminal.h"
 
 
 
@@ -36,7 +37,7 @@ int main(){
     Navigation in_folder(&root);
     std::cout << in_folder.getPtrFolder()->getName() << std::endl;
     std::cout << (in_folder.getPtrFolder()->findDir("Home"))->getName() << std::endl;
-    in_folder.moveToDir(in_folder.getPtrFolder()->findDir("Home"));
+    in_folder.moveToDir(in_folder.getPtrFolder()->findDir("bin"));
     std::cout << in_folder.getPtrFolder()->getName();
 
 return 0;

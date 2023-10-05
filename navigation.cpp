@@ -8,6 +8,10 @@ Navigation::Navigation(Directory *dir) : ptr_on_folder_{dir}{
     std::cout << "I see " << ptr_on_folder_->getName() << std::endl;
 }
 
+Navigation::~Navigation() {
+    ptr_on_folder_ = nullptr;
+}
+
 
 const Directory* Navigation::getPtrFolder() const {
         return ptr_on_folder_;

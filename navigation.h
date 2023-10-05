@@ -8,6 +8,8 @@ public:
     Navigation() = default;
     Navigation (Directory *dir);
 
+    ~Navigation();
+
     const Directory* getPtrFolder() const;
 
     const Directory* moveToDir(const Directory* ptr_on_dir);
