@@ -89,8 +89,3 @@ const std::deque<Directory*> Directory::getFolders() const {
     return this->folders_.second;
 }
 
-/*const std::deque<Directory*> Directory::getInsideFolders() const {
-    return folders_.second;
-}*/
-
-
