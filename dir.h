@@ -19,7 +19,8 @@ class Directory{
     const void displayFolders() const;
     const int displayFoldCount() const;
     const std::deque<Directory*> getFolders() const;
-    const Directory* findDir(const std::string name) const;
+    Directory* findDir(const std::string name);
+    Directory* getPrev();
 
 
     private:

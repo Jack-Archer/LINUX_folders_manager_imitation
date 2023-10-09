@@ -10,11 +10,13 @@ public:
 
     ~Navigation();
 
-    const Directory* getPtrFolder() const;
+     Directory* getPtrFolder();
 
-    const Directory* moveToDir(const Directory* ptr_on_dir);
+     void moveToDir(Directory* ptr_on_dir);
+
+
 
 private:
-    const Directory *ptr_on_folder_{nullptr};
+    Directory *ptr_on_folder_{nullptr};
 };
 

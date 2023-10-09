@@ -13,11 +13,14 @@ Navigation::~Navigation() {
 }
 
 
-const Directory* Navigation::getPtrFolder() const {
+Directory* Navigation::getPtrFolder() {
         return ptr_on_folder_;
     }
 
-const  Directory* Navigation::moveToDir(const Directory* ptr_on_dir) {
-    ptr_on_folder_ = ptr_on_dir;
-    return getPtrFolder();
+ void Navigation::moveToDir(Directory* ptr_on_dir) {
+    if(ptr_on_dir != nullptr) {
+        ptr_on_folder_ = ptr_on_dir;
+    } else {
+        std::cout << "Directory is not in folder" << std::endl;
+    }
  }

@@ -8,8 +8,14 @@
 class Terminal{
 public:
     Terminal() = delete;
-    Terminal(Directory *dir);
+    Terminal(Navigation &nav);
     ~Terminal();
+
+    Navigation *getObj();
+
+     void useLS();
+     void useCD();
+     void usePWD();
 
 
     std::string readCommand();

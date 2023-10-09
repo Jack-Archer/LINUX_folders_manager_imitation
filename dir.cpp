@@ -4,8 +4,7 @@
 #include <algorithm>
 
 
-Directory::Directory(const std::string name) : name_(name){
-}
+Directory::Directory(const std::string name) : name_(name){}
 
 Directory::~Directory(){
    if(folders_.second.empty()) {
@@ -55,10 +54,12 @@ void Directory::createDir(const std::string new_dir_name) {
     });
 }
 
- const Directory* Directory::findDir(const std::string name) const {
+ Directory* Directory::findDir(const std::string name) {
     auto it = std::find_if(folders_.second.begin(), folders_.second.end(), [this, &name](auto D_ptr){
-        return D_ptr->name_ == name;
+        //std::cout << D_ptr->getName() << " ";
+        return D_ptr->getName() == name;
     });
+    std::cout << std::endl;
     if(it != folders_.second.end()) {
         return *it;
     } else {
@@ -66,6 +67,7 @@ void Directory::createDir(const std::string new_dir_name) {
     }
  }
 
+//only if FindDir != nullptr
 const std::string Directory::getName() const {
    return name_;
 }
@@ -88,4 +90,11 @@ const int Directory::displayFoldCount() const {
 const std::deque<Directory*> Directory::getFolders() const {
     return this->folders_.second;
 }
+
+  Directory* Directory::getPrev() {
+    if(folders_.first == nullptr) {
+        return nullptr;
+    }
+    return folders_.first;
+ }
 
