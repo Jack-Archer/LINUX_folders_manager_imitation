@@ -89,6 +89,7 @@ int main(){
 
         terminal.useLS();
         terminal.usePWD();
+        terminal.useHELP();
     }
 
     std::cout << std::endl << "---END TERMINAL---" << std::endl;

@@ -1,0 +1,4 @@
+< --help > display command list
+< ls > list of objects in current Directory
+< pwd > display full path to current Directory
+< cd > change Directory

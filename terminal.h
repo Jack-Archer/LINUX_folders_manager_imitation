@@ -16,6 +16,7 @@ public:
      void useLS();
      void useCD();
      void usePWD();
+     void useHELP();
 
 
     std::string readCommand();
