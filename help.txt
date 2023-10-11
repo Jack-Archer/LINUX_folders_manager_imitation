@@ -1,4 +1,5 @@
 < --help > display command list
-< ls > list of objects in current Directory
+< ls > list of objects in current Directory( mods < -l > , < -a >
 < pwd > display full path to current Directory
 < cd > change Directory
+< mkdir name of dir > create new directory

@@ -4,6 +4,13 @@
 #include <string>
 #include <string_view>
 
+/*enum class Commands {
+    LS,
+    PWD,
+    HELP,
+    CD
+};*/
+
 
 class Terminal{
 public:
@@ -13,15 +20,17 @@ public:
 
     Navigation *getObj();
 
-     void useLS();
+     void useLS(std::string query);
+     void parseLS(std::string_view query);
      void useCD();
      void usePWD();
      void useHELP();
+     void useMKDIR(const std::string new_dir);
 
 
     std::string readCommand();
 
-    std::string_view parseCommand(std::string_view query);
+    void  parseCommand(std::string query);
 
 private:
     Navigation navigation{nullptr};

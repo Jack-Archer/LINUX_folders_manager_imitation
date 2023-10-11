@@ -16,11 +16,12 @@ class Directory{
     void deleteDir(const std::string dir_to_del);
 
     const std::string getName() const;
-    const void displayFolders() const;
+    const void displayFolders(int mod) const;
     const int displayFoldCount() const;
     const std::deque<Directory*> getFolders() const;
     Directory* findDir(const std::string name);
     Directory* getPrev();
+    bool isCorrectName(const std::string &new_name);
 
 
     private:

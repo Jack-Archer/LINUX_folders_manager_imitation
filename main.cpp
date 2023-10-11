@@ -68,6 +68,7 @@ int main(){
 
 
     terminal.getObj()->getPtrFolder()->createDir("Other");
+    terminal.getObj()->getPtrFolder()->createDir("Other");
 
     if(terminal.getObj()->getPtrFolder()->findDir("Other")) {
         terminal.getObj()->moveToDir(terminal.getObj()->getPtrFolder()->findDir("Other"));
@@ -76,8 +77,10 @@ int main(){
      terminal.getObj()->getPtrFolder()->createDir("Fuck");
      terminal.getObj()->getPtrFolder()->createDir("The");
      terminal.getObj()->getPtrFolder()->createDir("System");
+     terminal.getObj()->getPtrFolder()->createDir("System");
 
     std::string user_command{""};
+    terminal.useHELP();
 
 
 
@@ -85,11 +88,12 @@ int main(){
         std::cout << "Jack-Archer$ ";
         user_command.clear();
         user_command = terminal.readCommand();
+        terminal.parseCommand(user_command);
 
 
-        terminal.useLS();
-        terminal.usePWD();
-        terminal.useHELP();
+        //terminal.useLS();
+       // terminal.usePWD();
+        //terminal.useHELP();
     }
 
     std::cout << std::endl << "---END TERMINAL---" << std::endl;
