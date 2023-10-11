@@ -59,7 +59,7 @@ void Directory::createDir(const std::string new_dir_name) {
     });
 }
 
- Directory* Directory::findDir(const std::string name) {
+ Directory* Directory::findDir(const std::string_view name) {
     auto it = std::find_if(folders_.second.begin(), folders_.second.end(), [this, &name](auto D_ptr){
         return D_ptr->getName() == name;
     });

@@ -50,7 +50,15 @@ void Terminal::parseCommand(std::string query) {
             useMKDIR(s);
         }
         if(query_to_parse.substr(f_begin, f_space)  == "cd") {
-            useCD();
+            query_to_parse.remove_prefix(f_space);
+            //std::cout << "QUERY" << query_to_parse << std::endl;
+            f_begin = query_to_parse.find_first_not_of(' ');
+            f_space = query_to_parse.substr(f_begin, query_to_parse.length()).find_first_of(' ');
+            if(query_to_parse.substr(f_begin, f_space) == "../") {
+                getObj()->moveToDir(getObj()->getPtrFolder()->getPrev());
+            } else {
+                parseCD(query_to_parse);
+            }
         }
         //std::cerr << query_to_parse << " - Incorrect command" << std::endl;
     }
@@ -112,10 +120,38 @@ void Terminal::parseLS(std::string_view query){
    }
 }
 
- void Terminal::useCD() {
-    std::cout << "The command in progress right now" << std::endl;
+ void Terminal::useCD(std::string_view query) {
+    //std::cout << "Single method useCD" << std::endl;
+    if(Directory *ptr_on_folder; ptr_on_folder = getObj()->getPtrFolder()->findDir(query)) {
+        getObj()->moveToDir(ptr_on_folder);
+    }
+    //std::cout << "NAME" << getObj()->getPtrFolder()->getName() << std::endl;
     //realize change directory method
 }
+
+ void Terminal::parseCD(std::string_view query) {
+    //std::cout << "let's parse CD "<< query  << std::endl;
+    auto d_begin{query.find_first_not_of(' ')};
+    query.remove_prefix(d_begin);
+    auto d_end{query.find_first_of('/')};
+    if(d_end == query.npos) {
+        useCD(query.substr(0, d_end));
+    } else {
+        while(d_end != query.npos) {
+            if(Directory *ptr_on_folder; ptr_on_folder = getObj()->getPtrFolder()->findDir(query.substr(0, d_end))) {
+                getObj()->moveToDir(ptr_on_folder);
+            } else {
+                std::cerr << "Wrong path to Directory" << std::endl;
+                break;
+            }
+            query.remove_prefix(d_end + 1);
+            d_end = query.find_first_of('/');
+            //std::cout << "NEXT IN PATH <" << query << std::endl;
+            //std::cout << "NAME" << getObj()->getPtrFolder()->getName() << std::endl;
+        }
+        useCD(query);
+    }
+ }
 
  void Terminal::usePWD() {
     std::list<std::string> ss;

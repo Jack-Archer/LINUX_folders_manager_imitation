@@ -19,7 +19,7 @@ class Directory{
     const void displayFolders(int mod) const;
     const int displayFoldCount() const;
     const std::deque<Directory*> getFolders() const;
-    Directory* findDir(const std::string name);
+    Directory* findDir(const std::string_view name);
     Directory* getPrev();
     bool isCorrectName(const std::string &new_name);
 

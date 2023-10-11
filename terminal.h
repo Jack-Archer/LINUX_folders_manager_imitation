@@ -22,7 +22,8 @@ public:
 
      void useLS(std::string query);
      void parseLS(std::string_view query);
-     void useCD();
+     void useCD(std::string_view query);
+     void parseCD(std::string_view query);
      void usePWD();
      void useHELP();
      void useMKDIR(const std::string new_dir);
